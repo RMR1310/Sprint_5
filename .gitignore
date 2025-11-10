@@ -206,5 +206,16 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 .venv/
-.streamlit/
 __pycache__/
+
+.venv
+
+
+.venv
+
+
+.venv
+
+
+.venv
+
