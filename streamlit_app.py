@@ -16,7 +16,7 @@ try:
     if hist_button:
         st.write("Criando um histograma para o conjunto de dados de anúncios de vendas de carros")
         fig = px.histogram(df, x="odometer", nbins=50, title="Distribuição de Odômetro")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     scatter_button = st.button("Criar gráfico de dispersão")
     if scatter_button:
@@ -27,7 +27,7 @@ try:
                 fig = px.scatter(df_plot, x='odometer', y='price', title='Preço vs Odômetro (amostra)', trendline='ols')
             except Exception:
                 fig = px.scatter(df_plot, x='odometer', y='price', title='Preço vs Odômetro (amostra)')
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         else:
             st.info("Não há dados suficientes para desenhar o gráfico de dispersão")
 except Exception as e:
