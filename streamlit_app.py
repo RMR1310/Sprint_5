@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+Ôªø# -*- coding: utf-8 -*-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 
 st.title("App principal - Sprint 5")
-st.header("An·lise de VeÌculos")
-st.write("Esta È a app principal. Veja se o CSV processado est· disponÌvel em data/vehicles_processed.csv")
+st.header("An√°lise de Ve√≠culos")
+st.write("Esta √© a app principal. Veja se o CSV processado est√° dispon√≠vel em data/vehicles_processed.csv")
 
 try:
     df = pd.read_csv("data/vehicles_processed.csv", encoding="utf-8")
@@ -14,18 +14,21 @@ try:
 
     hist_button = st.button("Criar histograma")
     if hist_button:
-        st.write("Criando um histograma para o conjunto de dados de an˙ncios de vendas de carros")
-        fig = px.histogram(df, x="odometer", nbins=50, title="DistribuiÁ„o de OdÙmetro")
+        st.write("Criando um histograma para o conjunto de dados de an√∫ncios de vendas de carros")
+        fig = px.histogram(df, x="odometer", nbins=50, title="Distribui√ß√£o de Od√¥metro")
         st.plotly_chart(fig, use_container_width=True)
 
-    scatter_button = st.button("Criar gr·fico de dispers„o")
+    scatter_button = st.button("Criar gr√°fico de dispers√£o")
     if scatter_button:
-        st.write("Criando um gr·fico de dispers„o entre preÁo e odÙmetro")
+        st.write("Criando um gr√°fico de dispers√£o entre pre√ßo e od√¥metro")
         df_plot = df[['price','odometer']].dropna().head(1000)
         if not df_plot.empty:
-            fig = px.scatter(df_plot, x='odometer', y='price', title='PreÁo vs OdÙmetro (amostra)', trendline='ols')
+            try:
+                fig = px.scatter(df_plot, x='odometer', y='price', title='Pre√ßo vs Od√¥metro (amostra)', trendline='ols')
+            except Exception:
+                fig = px.scatter(df_plot, x='odometer', y='price', title='Pre√ßo vs Od√¥metro (amostra)')
             st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("N„o h· dados suficientes para desenhar o gr·fico de dispers„o")
+            st.info("N√£o h√° dados suficientes para desenhar o gr√°fico de dispers√£o")
 except Exception as e:
     st.error(f"Erro ao carregar CSV: {e}")
