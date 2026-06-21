@@ -1,4 +1,4 @@
-﻿# Dashboard Interativo com Streamlit — Sprint 5
+﻿# Dashboard Interativo com Streamlit 
 
 Este projeto consiste no desenvolvimento de um aplicativo web interativo utilizando Streamlit, com o objetivo de praticar conceitos fundamentais de engenharia de software aplicados ao contexto de dados. O aplicativo permite visualizar gráficos interativos (histograma e dispersão) a partir de um conjunto de dados em CSV.
 
